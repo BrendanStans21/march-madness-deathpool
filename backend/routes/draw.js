@@ -1,33 +1,28 @@
 const express = require('express');
+const { 
+    getDrawPage,
+    getManualDrawPage, 
+    postManualDraw,
+    getAutomaticDrawPage,
+    postAutomaticDraw,
+    getLiveDrawPage,
+    postLiveDraw
+} = require('../controllers/drawController');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({msg: 'GET Draw Page'});
-});
+router.get('/', getDrawPage);
 
-router.get('/manual', (req, res) => {
-    res.json({msg: 'GET Manual Draw Page'});
-});
+router.get('/manual', getManualDrawPage);
 
-router.post('/manual', (req, res) => {
-    res.json({msg: 'POST Manual Draw'});
-});
+router.post('/manual', postManualDraw);
 
-router.get('/automatic', (req, res) => {
-    res.json({msg: 'GET Automatic Draw Page'});
-});
+router.get('/automatic', getAutomaticDrawPage);
 
-router.post('/automatic', (req, res) => {
-    res.json({msg: 'POST Automatic Draw'});
-});
+router.post('/automatic', postAutomaticDraw);
 
-router.get('/live', (req, res) => {
-    res.json({msg: 'GET Live Draw Page'});
-});
+router.get('/live', getLiveDrawPage);
 
-router.post('/live', (req, res) => {
-    res.json({msg: 'POST Live Draw'});
-});
+router.post('/live', postLiveDraw);
 
 module.exports = router;

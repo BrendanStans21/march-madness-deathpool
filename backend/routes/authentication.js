@@ -1,29 +1,25 @@
 const express = require('express');
+const {
+    getLoginPage,
+    postLoginCredentials,
+    getSignupPage,
+    postSignupCredentials,
+    getRecoveryPage,
+    postRecoveryInformation
+} = require('../controllers/authenticationController');
 
 const router = express.Router();
 
-router.get('/login', (req, res) => {
-    res.json({msg: "GET Login Page"});
-});
+router.get('/login', getLoginPage);
 
-router.post('/login', (req, res) => {
-    res.json({msg: "POST Login Request"});
-});
+router.post('/login', postLoginCredentials);
 
-router.get('/signup', (req, res) => {
-    res.json({msg: "GET Signup Page"});
-});
+router.get('/signup', getSignupPage);
 
-router.post('/signup', (req, res) => {
-    res.json({msg: "POST Signup Request"});
-});
+router.post('/signup', postSignupCredentials);
 
-router.get('/recover', (req, res) => {
-    res.json({msg: "GET Recovery Page"});
-});
+router.get('/recover', getRecoveryPage);
 
-router.post('/recover', (req, res) => {
-    res.json({msg: "POST Recovery Information"});
-});
+router.post('/recover', postRecoveryInformation);
 
 module.exports = router;

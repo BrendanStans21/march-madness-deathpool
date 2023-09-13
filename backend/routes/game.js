@@ -1,25 +1,22 @@
 const express = require('express');
+const { 
+    getGameOverview,
+    getTrophies, 
+    getDeathboard,
+    getLeague,
+    getTeams
+} = require('../controllers/gameController');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({msg: 'GET Game Page'});
-});
+router.get('/', getGameOverview);
 
-router.get('/trophies', (req, res) => {
-    res.json({msg: 'GET Game Trophies Page'});
-});
+router.get('/trophies', getTrophies);
 
-router.get('/deathboard', (req, res) => {
-    res.json({msg: 'GET Game Deathboard Page'});
-});
+router.get('/deathboard', getDeathboard);
 
-router.get('/league', (req, res) => {
-    res.json({msg: 'GET Game League Page'});
-});
+router.get('/league', getLeague);
 
-router.get('/teams', (req, res) => {
-    res.json({msg: 'GET Game Teams Page'});
-});
+router.get('/teams', getTeams);
 
 module.exports = router;

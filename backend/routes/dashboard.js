@@ -1,29 +1,25 @@
 const express = require('express');
+const { 
+    getDashboardPage,
+    getCreateGamePage, 
+    postNewGameDetails,
+    patchGame,
+    getJoinGamePage,
+    postJoinGameRequest
+} = require('../controllers/dashboardController');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({msg: 'GET Dashboard Page'});
-});
+router.get('/', getDashboardPage);
 
-router.get('/createGame', (req, res) => {
-    res.json({msg: 'GET Create Game Page'});
-});
+router.get('/createGame', getCreateGamePage);
 
-router.post('/createGame', (req, res) => {
-    res.json({msg: 'POST New Game'});
-});
+router.post('/createGame', postNewGameDetails);
 
-router.patch('/createGame', (req, res) => {
-    res.json({msg: 'PATCH Game'});
-});
+router.patch('/createGame', patchGame);
 
-router.get('/joinGame', (req, res) => {
-    res.json({msg: 'GET Join Page'});
-});
+router.get('/joinGame', getJoinGamePage);
 
-router.post('/joinGame', (req, res) => {
-    res.json({msg: 'POST Join'});
-});
+router.post('/joinGame', postJoinGameRequest);
 
 module.exports = router;
